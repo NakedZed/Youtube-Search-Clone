@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import youtube from '../api/youtube';
 
 class SearchBar extends Component {
   state = { term: ' ' };
@@ -9,8 +10,9 @@ class SearchBar extends Component {
     });
   };
   OnFormSubmit = (event) => {
-    
-  }
+    event.preventDefault();
+    this.props.onFormSubmit(this.state.term);
+  };
   render() {
     return (
       <div className="ui segment">
